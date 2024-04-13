@@ -16,7 +16,10 @@ export default function Header() {
 
   return (
     <header>
-      <span>MKs sistemas</span>
+      <div>
+      <span>MKS</span>
+      <span className="text-[20px]">sistemas</span>
+      </div>  
 
       <button
         onClick={toggleSidebar}
