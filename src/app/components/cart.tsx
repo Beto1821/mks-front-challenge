@@ -46,7 +46,7 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
         <X size={20} style={{ color: 'black' }} />
       </button>
 
-      <div className="px-7" style={{ marginTop: '80px' }}>
+      <div className="px-10" style={{ marginTop: '80px' }}>
         {cart.length === 0 ? (
           <p className='text-center mt-5'>O carrinho está vazio</p>
         ) : (
@@ -65,7 +65,7 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
                     <X size={15} />
                   </button>
 
-                  <div className='flex items-center flex-wrap gap-4'>
+                  <div className='flex items-center gap-4'>
                     <Image
                       src={product.photo}
                       alt={product.name}
@@ -74,7 +74,7 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
                       priority={true}
                     />
 
-                    <span className='text-lg'>{product.name}</span>
+                    <span className='text-lg h-[33px] w-[113px] insert-x-[90px] top-[35px] text-[13px]'>{product.name}</span>
                   </div>
 
                   <div className='flex'>
