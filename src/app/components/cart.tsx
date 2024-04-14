@@ -13,16 +13,17 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
   const { cart, addToCart, removeFromCart, updateProductCount, clearCart } = useCart();
 
   const handleMinus = (product: IProduct) => {
-    removeFromCart(product)
+    removeFromCart(product);
   };
 
   const handlePlus = (product: IProduct) => {
-    addToCart(product)
+    addToCart(product);
   };
 
   const handleInputChange = (value: number, product: IProduct) => {
     setTimeout(() => {
-      updateProductCount(product, value)
+      updateProductCount(product, value);
+
     }, 300)
   };
 
@@ -32,7 +33,7 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
 
   const handleFinalizeCheckout = () => {
     clearCart();
-    storageService.clear();
+    storageService.removeItem('cart');
     toggleSidebar();
   }
 
@@ -40,15 +41,15 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
     <>
       <button
         onClick={toggleSidebar}
-        className='absolute top-3 right-3 p-2 rounded-md bg-gray-200 hover:bg-gray-300 focus:outline-none'
+        className='absolute top-3 right-3 p-2 bg-gray-800 hover:bg-gray-700 focus:outline-none text-white rounded-full'
         aria-label='Close sidebar'
       >
-        <X size={20} style={{ color: 'black' }} />
+        <X size={23} />
       </button>
 
-      <div className="px-10" style={{ marginTop: '80px' }}>
+      <div className="px-7 h-full max-h-[70%] overflow-y-auto" style={{ marginTop: '80px' }}>
         {cart.length === 0 ? (
-          <p className='text-center mt-5'>O carrinho está vazio</p>
+          <p className='text-center mt-5 text-3xl'>O carrinho está vazio</p>
         ) : (
           <div className='flex flex-col items-center gap-3'>
             {cart.map((product, idx) => {
@@ -65,7 +66,7 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
                     <X size={15} />
                   </button>
 
-                  <div className='flex items-center gap-4'>
+                  <div className='flex items-center gap-4 w-[40%]'>
                     <Image
                       src={product.photo}
                       alt={product.name}
@@ -74,10 +75,10 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
                       priority={true}
                     />
 
-                    <span className='text-lg h-[33px] w-[113px] insert-x-[90px] top-[35px] text-[13px]'>{product.name}</span>
+                    <span className='text-md'>{product.name}</span>
                   </div>
 
-                  <div className='flex'>
+                  <div className='flex w-[20%]'>
                     <button
                       onClick={() => handleMinus(product)}
                       className='border border-gray-200 py-2 px-3 rounded-md'
@@ -102,7 +103,7 @@ export default function Cart({ toggleSidebar }: ICartOptions) {
                     </button>
                   </div>
 
-                  <b className='text-lg'>
+                  <b className='text-lg w-[20%]'>
                     {formatter.format(Number(product.price))}
                   </b>
                 </motion.div>

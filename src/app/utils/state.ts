@@ -6,6 +6,7 @@ interface ICartState {
   removeFromCart: (product: IProduct, remove?: boolean) => void;
   updateProductCount: (product: IProduct, value: number) => void;
   clearCart: () => void
+  createCart: (products: IProduct[]) => void
 }
 
 const useCart = create<ICartState>((set) => ({
@@ -53,7 +54,14 @@ const useCart = create<ICartState>((set) => ({
   clearCart: () =>
     set(() => ({
       cart: []
-    }))
+    })),
+
+  createCart: (products) =>
+    set((state) => {
+      state.cart = products
+
+      return { cart: [...state.cart]}
+    }),
 }));
 
 export default useCart;

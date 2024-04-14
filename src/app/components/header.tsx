@@ -3,6 +3,7 @@ import useCart from "../utils/state";
 
 import { useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
+
 import Cart from "./cart";
 
 export default function Header() {
@@ -15,11 +16,11 @@ export default function Header() {
 
   return (
     <header>
-      <span>MKs sistemas</span>
+      <span className="text-lg"><b className="text-bold text-3xl">Next</b> Store</span>
 
       <button
         onClick={toggleSidebar}
-        className="p-3 border-2 border-zinc-800 rounded-xl relative"
+        className="p-2 relative"
         aria-label="toggle sidebar"
       >
         <ShoppingCart size={32} />
@@ -41,7 +42,7 @@ export default function Header() {
             ></motion.div>
             <motion.div
               {...framerSidebarPanel}
-              className="fixed top-0 bottom-0 right-0 z-50 h-screen w-auto bg-[#0F52BA]"
+              className="fixed top-0 bottom-0 right-0 z-50 min-w-[35%] h-screen bg-[#0F52BA]"
               ref={ref}
               aria-label="Sidebar"
             >

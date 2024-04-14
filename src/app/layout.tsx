@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import "./css/globals.sass";
 
 export const metadata: Metadata = {
-  title: "mks-frontend-challenge",
+  title: "Next Store",
+  icons: {
+    icon: "/images/next.svg",
+  },
 };
 
 export default function RootLayout({
