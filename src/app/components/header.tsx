@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header>
-      <span className="text-lg"><b className="text-bold text-3xl">Next</b> Store</span>
+      <span className="text-lg"><b className="text-bold text-3xl">MKS</b> Sistemas</span>
 
       <button
         onClick={toggleSidebar}
